@@ -1,4 +1,4 @@
-.img-thumbnail {
+#pic1 {
  	width: 200px; 
 	height: 200px;
 	margin: 20px;
@@ -6,7 +6,36 @@
 	
 }
 
+#pic2 {
+ 	width: 200px; 
+	height: 200px;
+	margin: 20px;
+	
+	
+}
+
+#pic3 {
+ 	width: 200px; 
+	height: 200px;
+	margin: 20px;
+	
+	
+}
+
+#pic4 {
+ 	width: 200px; 
+	height: 200px;
+	margin: 20px;
+	
+	
+}
 #comp-rand {
+	font-size: 30px; 
+	text-align: center; 
+	font-weight: bold;
+}
+
+#score {
 	font-size: 30px; 
 	text-align: center; 
 	font-weight: bold;

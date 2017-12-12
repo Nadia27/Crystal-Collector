@@ -1,5 +1,10 @@
-var crystalRandom = [];
-var computerRandom = [];
+var crystalRandom1 = "";
+var crystalRandom2 = ""; 
+var crystalRandom3 = "";
+var crystalRandom4 = "";
+var computerRandom = "";
+var userScore = 0; 
+var result = 0;
 
 
 
@@ -9,21 +14,79 @@ var computerRandom = [];
 		
 	$(document).ready(function() {
 
-	computerRandom = Math.floor(Math.random() * (120 - 19) + 19);
+		computerRandom = Math.floor(Math.random() * (120 - 19) + 19);
 			  
 			$("#comp-rand").append(computerRandom);
-  	
-  	//crystalRandom = Math.floor(Math.random() * 13);
-		//console.log("I am your: " + crystalRandom); 
-	} ); 
+  	//Generate crystal random numbers (1-12) at start of game random number hidden until click event 
+  		crystalRandom1 = Math.floor(Math.random() * (13 - 1) + 1 );
+			console.log("I am your crystalRandom: " + crystalRandom1);
+
+		crystalRandom2 = Math.floor(Math.random() * (13 - 1) + 1 );
+			console.log("I am your crystalRandom: " + crystalRandom2);
+
+		crystalRandom3 = Math.floor(Math.random() * (13 - 1) + 1 );
+			console.log("I am your crystalRandom: " + crystalRandom3);
+
+		crystalRandom4 = Math.floor(Math.random() * (13 - 1) + 1 );
+			console.log("I am your crystalRandom: " + crystalRandom4);
+
+	});
 
 
+//Create an on-click event event that responds to button clicks on the crystal images
+		
+		$("#pic1").on('click', function() {
+			var newCrystalRan1 = parseInt(crystalRandom1);
+			//var newUserScore = parseInt(userScore);
 
-//Create an on-click event event that responds to button clicks on the crystal images $('.letter-button').on('click', function() {
+			console.log(newCrystalRan1);
+
+			result = result + newCrystalRan1;
+			$("#score").text(result);
+			
+				console.log(result);
+       })
+
+
+		$("#pic2").on('click', function() {
+			var newCrystalRan2 = parseInt(crystalRandom2);
+			//var newUserScore = parseInt(userScore);
+
+			console.log(newCrystalRan2);
+
+			result = result + newCrystalRan2;
+			$("#score").text(result);
+			
+				console.log(result);
+       })
+
+		$("#pic3").on('click', function() {
+			var newCrystalRan2 = parseInt(crystalRandom2);
+			//var newUserScore = parseInt(userScore);
+
+			console.log(newCrystalRan2);
+
+			result = result + newCrystalRan2;
+			$("#score").text(result);
+			
+				console.log(result);
+       })
+
+		$("#pic4").on('click', function() {
+			var newCrystalRan2 = parseInt(crystalRandom2);
+			//var newUserScore = parseInt(userScore);
+
+			console.log(newCrystalRan2);
+
+			result = result + newCrystalRan2;
+			$("#score").text(result);
+			
+				console.log(result);
+       })
 	
 		
 	
-	//clicking the image generates a random numbers between 1-12..these numbers should be hidden 
+	//clicking the image adds to 'your score 
 	 
 	//update player score with each click(in HTML) 
   
