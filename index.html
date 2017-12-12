@@ -5,6 +5,9 @@
 	<title>Crystals Collector Game | jQuery</title>
 	<!--Bootstrap-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<!--jQuery-->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
@@ -33,7 +36,8 @@
      		 <div class="card-body">
         
         		<h4 class="card-title">Random Number</h4>
-        		<p class="card-text">Can you match me! Remember if you go over you lose!</p>
+        		<p class="card-text" >Can you match me! Remember if you go over you lose!</p>
+        		<div id="comp-rand"></div>
         
       		 </div>
     		</div>
@@ -65,16 +69,16 @@
 	<div class="container">
   <div class="row">
     <div class="col-sm-3">
-      <img src="assets/images/crystal-1.jpg" alt="..." class="img-thumbnail">
+      <img src="assets/images/crystal-1.jpg" alt="crystal-1" class="img-thumbnail">
     </div>
     <div class="col-sm-3">
-      <img src="assets/images/crystal-2.jpg" alt="..." class="img-thumbnail">
+      <img src="assets/images/crystal-2.jpg" alt="crystal-2" class="img-thumbnail">
     </div>
     <div class="col-sm-3">
-      <img src="assets/images/crystal-3.jpg" alt="..." class="img-thumbnail">
+      <img src="assets/images/crystal-3.jpg" alt="crystal-3" class="img-thumbnail">
     </div>
     <div class="col-sm-3">
-      <img src="assets/images/crystal-4.jpg" alt="..." class="img-thumbnail">
+      <img src="assets/images/crystal-4.jpg" alt="crystal-4" class="img-thumbnail">
     </div>
   </div>
 </div>
@@ -82,6 +86,6 @@
 </div>
   
 
-	
+ <script type="text/javascript" src="assets/javascript/game.js" ></script>
 </body>
 </html>
