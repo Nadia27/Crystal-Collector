@@ -5,6 +5,8 @@ var crystalRandom4 = "";
 var computerRandom = "";
 var userScore = 0; 
 var result = 0;
+var wins = 0; 
+var loses = 0; 
 
 
 
@@ -39,9 +41,9 @@ var result = 0;
 			var newCrystalRan1 = parseInt(crystalRandom1);
 			//var newUserScore = parseInt(userScore);
 
-			console.log(newCrystalRan1);
-
+		//Clicking image adds to score box
 			result = result + newCrystalRan1;
+			//Place Result in Score box(html)
 			$("#score").text(result);
 			
 				console.log(result);
@@ -57,8 +59,8 @@ var result = 0;
 			result = result + newCrystalRan2;
 			$("#score").text(result);
 			
-				console.log(result);
-       })
+				
+       	})
 
 		$("#pic3").on('click', function() {
 			var newCrystalRan2 = parseInt(crystalRandom2);
@@ -69,8 +71,8 @@ var result = 0;
 			result = result + newCrystalRan2;
 			$("#score").text(result);
 			
-				console.log(result);
-       })
+				
+        })
 
 		$("#pic4").on('click', function() {
 			var newCrystalRan2 = parseInt(crystalRandom2);
@@ -81,14 +83,19 @@ var result = 0;
 			result = result + newCrystalRan2;
 			$("#score").text(result);
 			
-				console.log(result);
-       })
+				
+       	})
 	
 		
-	
-	//clicking the image adds to 'your score 
+$(".img-thumbnail").click(function(){
+  		if(result > computerRandom) {
+  			alert("Your score " + result + " exceeds the random number! You lose."); 
+  		} //else (result == computerRandom && !(0)) {
+  			//alert("Great job! You win!")
+
+  		//}
+});	
 	 
-	//update player score with each click(in HTML) 
   
 
 	

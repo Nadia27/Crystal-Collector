@@ -1,3 +1,9 @@
+body {
+	background: url('../images/cubes.png');
+}
+
+
+
 #pic1 {
  	width: 200px; 
 	height: 200px;
