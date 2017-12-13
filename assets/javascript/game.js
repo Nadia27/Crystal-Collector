@@ -89,7 +89,10 @@ var loses = 0;
 		
 $(".img-thumbnail").click(function(){
   		if(result > computerRandom) {
-  			alert("Your score " + result + " exceeds the random number! You lose."); 
+  			alert("Your score " + result + " exceeds the random number! You lose.");
+  			loses++;  
+  			console.log(loses); 
+  			$("#loses").text(loses); 
   		} //else (result == computerRandom && !(0)) {
   			//alert("Great job! You win!")
 
