@@ -1,110 +1,82 @@
-var crystalRandom1 = "";
-var crystalRandom2 = ""; 
-var crystalRandom3 = "";
-var crystalRandom4 = "";
-var computerRandom = "";
-var userScore = 0; 
-var result = 0;
-var wins = 0; 
-var loses = 0; 
+//Generate random number at beginning of game and push to html
+//Target number 19-120 and crystal randoms
+var game = {
+  crystalRandom1: 0,
+  crystalRandom2: 0,
+  crystalRandom3: 0,
+  crystalRandom4: 0,
+  computerRandom: 0,
+  result: 0,
 
+  generateNumbers: function() {
+    this.computerRandom = Math.floor(Math.random() * (120 - 19) + 19);
+    console.log(this.computerRandom);
+    $("#comp-rand").text(this.computerRandom);
+    this.crystalRandom1 = Math.floor(Math.random() * (13 - 1) + 1);
+    this.crystalRandom2 = Math.floor(Math.random() * (13 - 1) + 1);
+    this.crystalRandom3 = Math.floor(Math.random() * (13 - 1) + 1);
+    this.crystalRandom4 = Math.floor(Math.random() * (13 - 1) + 1);
+  }
+}
 
+var gameStat = {
+  wins: 0,
+  loses: 0
+}
 
-//Generate random number at beginning of game and push to html 
-		//Target number 19-120 and crystal randoms 
-
-		
-	$(document).ready(function() {
-
-		computerRandom = Math.floor(Math.random() * (120 - 19) + 19);
-			  
-			$("#comp-rand").append(computerRandom);
-  	//Generate crystal random numbers (1-12) at start of game random number hidden until click event 
-  		crystalRandom1 = Math.floor(Math.random() * (13 - 1) + 1 );
-			console.log("I am your crystalRandom: " + crystalRandom1);
-
-		crystalRandom2 = Math.floor(Math.random() * (13 - 1) + 1 );
-			console.log("I am your crystalRandom: " + crystalRandom2);
-
-		crystalRandom3 = Math.floor(Math.random() * (13 - 1) + 1 );
-			console.log("I am your crystalRandom: " + crystalRandom3);
-
-		crystalRandom4 = Math.floor(Math.random() * (13 - 1) + 1 );
-			console.log("I am your crystalRandom: " + crystalRandom4);
-
-	});
 
 
 //Create an on-click event event that responds to button clicks on the crystal images
-		
-		$("#pic1").on('click', function() {
-			var newCrystalRan1 = parseInt(crystalRandom1);
-			//var newUserScore = parseInt(userScore);
+game.generateNumbers();
 
-		//Clicking image adds to score box
-			result = result + newCrystalRan1;
-			//Place Result in Score box(html)
-			$("#score").text(result);
-			
-				console.log(result);
-       })
+$("#pic1").on('click', function() {
+  game.result = game.result + game.crystalRandom1;
+  $("#score").text(game.result);
+})
+$("#pic2").on('click', function() {
+  game.result = game.result + game.crystalRandom2;
+  $("#score").text(game.result);
+})
+$("#pic3").on('click', function() {
+  game.result = game.result + game.crystalRandom3;
+  $("#score").text(game.result);
+})
+$("#pic4").on('click', function() {
+  game.result = game.result + game.crystalRandom4;
+  $("#score").text(game.result);
+})
+
+//Game over if player exceeds random number
+$(".img-thumbnail").click(function() {
+  if (game.result > game.computerRandom) {
+
+    alert("Your score " + game.result + " exceeds the random number. You lose!");
+    //Increase loses variable and print to HTML
+    gameStat.loses++;
+    console.log(gameStat.loses);
+    $("#loses").text(gameStat.loses);
+    resetGame();
+
+  } else if (game.result === game.computerRandom) {
+    alert("You win! You matched the random number " + game.computerRandom + ". Great job!");
+    gameStat.wins++;
+    $("#wins").text(gameStat.wins);
+    resetGame();
+  }
+
+});
 
 
-		$("#pic2").on('click', function() {
-			var newCrystalRan2 = parseInt(crystalRandom2);
-			//var newUserScore = parseInt(userScore);
+function resetGame(){
+  game.crystalRandom1 = 0;
+  game.crystalRandom2 = 0;
+  game.crystalRandom3 = 0;
+  game.crystalRandom4 = 0;
+  game.computerRandom = 0;
+  game.result = 0;
+  $("#score").text(game.result);
 
-			console.log(newCrystalRan2);
 
-			result = result + newCrystalRan2;
-			$("#score").text(result);
-			
-				
-       	})
 
-		$("#pic3").on('click', function() {
-			var newCrystalRan2 = parseInt(crystalRandom2);
-			//var newUserScore = parseInt(userScore);
-
-			console.log(newCrystalRan2);
-
-			result = result + newCrystalRan2;
-			$("#score").text(result);
-			
-				
-        })
-
-		$("#pic4").on('click', function() {
-			var newCrystalRan2 = parseInt(crystalRandom2);
-			//var newUserScore = parseInt(userScore);
-
-			console.log(newCrystalRan2);
-
-			result = result + newCrystalRan2;
-			$("#score").text(result);
-			
-				
-       	})
-	
-		
-$(".img-thumbnail").click(function(){
-  		if(result > computerRandom) {
-  			alert("Your score " + result + " exceeds the random number! You lose.");
-  			loses++;  
-  			console.log(loses); 
-  			$("#loses").text(loses); 
-  		} //else (result == computerRandom && !(0)) {
-  			//alert("Great job! You win!")
-
-  		//}
-});	
-	 
-  
-
-	
-//Game over if player score matches random number 
-//Game over if player exceeds random number 
-//Game will restart if: player matches, exceeds, and a new random number should generate
-//Generate new random number for crystals 
-//Player score should reset to 0
-//Show the number of games the player wins and loses
+	game.generateNumbers();
+}
